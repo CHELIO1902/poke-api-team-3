@@ -36,12 +36,14 @@ function createPokemon(pokemon) {
 
     const abilities = document.createElement('p');
     abilities.textContent = pokemon.abilities
-    spriteContainer.appendChild(sprite);
+
+
 
     const name = document.createElement("p");
     name.classList.add("name");
     name.textContent = pokemon.name;
 
+    spriteContainer.appendChild(sprite);
     card.appendChild(spriteContainer);
     card.appendChild(weight);
     card.appendChild(number);
@@ -49,7 +51,7 @@ function createPokemon(pokemon) {
     card.appendChild(name);
 
     pokemonContainer.appendChild(card)
-    console.log(pokemon);
+        //console.log(pokemon);
 }
 
 function fetchPokemon(id) {
