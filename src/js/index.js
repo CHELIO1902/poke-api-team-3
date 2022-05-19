@@ -30,7 +30,15 @@ buscandoNombres.addEventListener("submit", (event) => {
 
 // funcion para crear las cards y las clases de las mismas para mostrar la informacion de JSON
 let imprimirPokemon = (pokemons) => {
+
   pokemons.forEach((element) => {
+
+   /*  var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl)
+  })
+  console.log(popoverList); */
+
     // creando los elementos del apendChild
     let bodyCard = document.createElement("div");
     let row = document.createElement("div");
@@ -47,10 +55,12 @@ let imprimirPokemon = (pokemons) => {
     popover.setAttribute("tabindex", "0");
     popover.setAttribute("role", "button");
     popover.setAttribute("data-bs-toggle", "popover");
-    popover.setAttribute("data-bs-trigger", "focus");
+    popover.setAttribute("data-bs-trigger", "hover");
     popover.setAttribute("tittle", "Mas cacracteristicas");
     popover.setAttribute("data-html", "true");
     popover.setAttribute("data-content", element.name);
+
+    
 
 
    
@@ -82,16 +92,10 @@ let imprimirPokemon = (pokemons) => {
   });
 };
 
-/* var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-}) */
 
-$('[data-bs-toggle="popover"]').popover(); 
 
-/* $(document).ready(function () {
-  $('[data-toggle="popover"]').popover();
-}); */
-
+const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+console.log(popoverTriggerList);
 
 
