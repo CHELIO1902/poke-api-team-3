@@ -2,6 +2,23 @@ const pokemonContainer = document.querySelector('.pokemon-container');
 const previous = document.querySelector("#previous");
 const next = document.querySelector("#next");
 
+let offset = 1;
+let limit = 9;
+
+previous.addEventListener('click', () => {
+    if (offset != 1) {
+        offset -= 10;
+        removeChildNodes(pokemonContainer);
+        fetchPokemons(offset, limit);
+    }
+});
+
+next.addEventListener('click', () => {
+    offset += 10;
+    removeChildNodes(pokemonContainer);
+    fetchPokemons(offset, limit);
+});
+
 function createPokemon(pokemon) {
     const card = document.createElement("div");
     const spriteContainer = document.createElement("div");
@@ -33,13 +50,17 @@ function fetchPokemon(id) {
 
 }
 
-function fetchPokemons(number) {
-    for (let i = 1; i <= number; i++) {
+function fetchPokemons(offset, limit) {
+    for (let i = offset; i <= offset + limit; i++) {
         fetchPokemon(i);
     }
 
 }
 
+function removeChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
 
-
-fetchPokemons(20);
+fetchPokemons(offset, limit);
