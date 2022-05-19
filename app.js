@@ -27,6 +27,15 @@ function createPokemon(pokemon) {
     const sprite = document.createElement("img");
     sprite.src = pokemon.sprites.front_default;
 
+    const number = document.createElement('p');
+    number.textContent = pokemon.id
+
+    const weight = document.createElement('p');
+    weight.textContent = pokemon.weight
+
+
+    const abilities = document.createElement('p');
+    abilities.textContent = pokemon.abilities
     spriteContainer.appendChild(sprite);
 
     const name = document.createElement("p");
@@ -34,6 +43,9 @@ function createPokemon(pokemon) {
     name.textContent = pokemon.name;
 
     card.appendChild(spriteContainer);
+    card.appendChild(weight);
+    card.appendChild(number);
+    card.appendChild(abilities);
     card.appendChild(name);
 
     pokemonContainer.appendChild(card)
