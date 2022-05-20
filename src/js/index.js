@@ -65,6 +65,24 @@ function fetchPokemon(id) {
 
 }
 
+/* function fetchPokemonName(name) {
+  fetch(`https://pokeapi.co/api/v2/pokemon/${name}/`)
+      .then(res => res.json())
+      .then(data => {
+          console.log(data)
+          createPokemon(data)
+      });
+
+} */
+
+/* let busqueda = document.EventListener("submit")
+
+function search (name) {
+   busqueda = fetchPokemonName.filter(({ name }) =>
+  name.toLocaleLowerCase().includes(event.target.pokemon.value.toLocaleLowerCase())
+);
+} */
+
 function fetchPokemons(offset, limit) {
     for (let i = offset; i <= offset + limit; i++) {
         fetchPokemon(i);
